@@ -1,0 +1,141 @@
+.navigation_bar {
+    background-color: orange;
+	margin: 12px;
+	padding: 12px;
+}
+
+
+/* DIV stuff from our SDP */
+#plan0 {
+	background-color: palevioletred;
+}
+
+#plan1 {
+	background-color: orange;
+}
+
+#plan2 {
+	background-color: yellow;
+}
+
+#plan3 {
+	background-color: lightgreen;
+}
+
+#plan4 {
+	background-color: lightskyblue;
+	
+}
+
+#plan5 {
+	background-color: mediumpurple;
+}
+
+#plan6 {
+	background-color: violet;
+}
+
+
+/* Tech-tip stuff */
+.Tech-Tip {
+	margin: 24px;
+	padding: 12px;
+	padding-left: 24px;
+}
+
+
+
+
+#HTML-Elements {
+    background-color: tomato;
+}
+
+#HTML-Elements ul {
+	background-color: tomato;
+}
+
+#HTML-Elements li:nth-child(odd) {
+	background-color: orangered;
+}
+
+#HTML-Elements li:nth-child(even) {
+	background-color: tomato;
+}
+
+#HTML-Elements li ul li:nth-child(odd) {
+	background-color: orangered;
+}
+
+#HTML-Elements li ul li:nth-child(even) {
+	background-color: tomato;
+}
+
+#HTML-Elements li ul li ul li:nth-child(odd){
+	background-color: tomato;
+}
+
+
+
+
+#HTML-Character-Entities {
+	background-color: lightblue;
+}
+
+#HTML-Character-Entities tbody tr:nth-child(odd){
+	background-color: lightskyblue;
+}
+
+
+
+
+#CSS-Selectors {
+	background-color: palegreen;
+}
+
+#CSS-Selectors li:nth-child(odd){
+	background-color: lightgreen;
+}
+
+#CSS-Selectors li ul {
+	background-color: palegreen;
+}
+
+#CSS-Selectors li:nth-child(odd) ul li:nth-child(odd){
+	background-color: palegreen;
+}
+
+
+
+#CSS-Properties {
+	background-color: pink;
+}
+
+#CSS-Properties li:nth-child(odd) {
+	background-color: plum;
+}
+
+
+
+#biography {
+	background-color: black;
+	color: white;
+	font-family: Cambria;
+}
+
+
+
+.blog_post {
+	/* Shoutout to "Guffa" on stackoverflow for this line */
+	font-family: "Comic Sans MS", "Comic Sans", cursive;
+	margin: 12px;
+	padding: 6px;
+	padding-left: 24px;
+	background-color: papayawhip;
+}
+
+.byline {
+	font-size: 8pt;
+	font-style: italic;
+}
+
+

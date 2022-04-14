@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <title>Software Development Plan</title>
+</head>
+
+<body>
+	<h1>Software Development Plan</h1>
+
+	<div id="plan0">
+		<h2>Phase 0: Requirements Specification</h2>
+		<p>This assignment is similar to the past one - we will be chaining a few APIs together to tell a user the
+			current weather and 5-day forecast. Rather than vanilla JS, we will use vue.js to manipulate the DOM and
+			update the site as our "fetch"es get resolved.</p>
+	</div>
+
+	<div id="plan1">
+		<h2>Phase 1: System Analysis</h2>
+		<p>We start with the user's IP address and make a request to ip-api.com's api, which should return the user's
+			latitude and longitude (of course, errors will be handled gracefully). We then make two calls to
+			openweathermap.org's api, one for the current status and one for the 5-day forecast. The weather API returns
+			data in a rather lengthy JSON object, so time will have to be taken to get exactly what values I need.</p>
+	</div>
+
+	<div id="plan2">
+		<h2>Phase 2: Design</h2>
+	</div>
+
+	<div id="plan3">
+		<h2>Phase 3: Implementation</h2>
+		<p>See /src</p>
+	</div>
+
+	<div id="plan4">
+		<h2>Phase 4: Testing & Debugging</h2>
+		<table>
+			<thead>
+			<tr>
+				<th>Test</th>
+				<th>Results</th>
+			</tr>
+			</thead>
+			<tr>
+				<td>Does the website work?</td>
+				<td>Not tested</td>
+			</tr>
+			<tr>
+				<td>Are API failures handled gracefully?</td>
+				<td>Not tested</td>
+			</tr>
+			<tr>
+				<td>Do all tests work in multiple browsers? (Not just chromium-based?)</td>
+				<td>Not tested</td>
+			</tr>
+			<tr>
+				<td>Do all tests work when project is cloned to another directory? To another computer?</td>
+				<td>Not tested</td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="plan5">
+		<h2>Phase 5: Deployment</h2>
+		<p>Pushed to <a href="https://gitlab.cs.usu.edu/thomas.p.longhurst/cs2610-longhurst-tom-assn5">this repository.</a></p>
+	</div>
+
+	<div id="plan6">
+		<h2>Phase 6: Maintenance</h2>
+		<!-- TODO: write phase 6 -->
+	</div>
+</body>
+
+</html>
