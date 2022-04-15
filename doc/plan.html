@@ -20,14 +20,18 @@
 
 	<div id="plan1">
 		<h2>Phase 1: System Analysis</h2>
-		<p>We start with the user's IP address and make a request to ip-api.com's api, which should return the user's
-			latitude and longitude (of course, errors will be handled gracefully). We then make two calls to
-			openweathermap.org's api, one for the current status and one for the 5-day forecast. The weather API returns
-			data in a rather lengthy JSON object, so time will have to be taken to get exactly what values I need.</p>
+		<p>We start with a call to ip-api, which returns a user's latitude and longitude based on their IP address. We
+			can then chain a couple of fetches to openweathermap to get the current weather conditions and 5-day
+			forecast at said latitude and longitude. The current weather and forecast have similar formats - the latter
+			is just	a list of the same JSON fields, so we can use the same function to turn that JSON response into
+			usable data.</p>
 	</div>
 
 	<div id="plan2">
 		<h2>Phase 2: Design</h2>
+		<p>Again, due to the tedium of writing pseudo-html inside of an html document, I won't touch on index.html too
+			much. Just know I'll be using plenty of <code>v-if</code> and <code>v-for</code> statements for conditional
+			rendering.</p>
 		<h3>script.js</h3>
 		<pre><code>methods: {
 	getTime(json) {
@@ -95,15 +99,15 @@ created() {
 			</thead>
 			<tr>
 				<td>Do all features work as intended?</td>
-				<td>Not tested</td>
+				<td>Yes</td>
 			</tr>
 			<tr>
 				<td>Are API failures handled gracefully?</td>
-				<td>Not tested</td>
+				<td>Yes</td>
 			</tr>
 			<tr>
 				<td>Do all tests work in multiple browsers? (Not just chromium-based?)</td>
-				<td>Not tested</td>
+				<td>Yes, as long as long as ad-block is turned off.</td>
 			</tr>
 			<tr>
 				<td>Do all tests work when project is cloned to another directory? To another computer?</td>
@@ -119,7 +123,15 @@ created() {
 
 	<div id="plan6">
 		<h2>Phase 6: Maintenance</h2>
-		<!-- TODO: write phase 6 -->
+		<p>I think my program should be easy to understand for anyone familiar with how vue.js works, it really only uses
+			basic features like conditional rendering and lifecycle hooks - none of the more advanced features.</p>
+		<p>I feel my documentation is reasonably well-written, and anyone (including myself in 6 months) should be able
+			to figure out how the program works without much difficulty.</p>
+		<p>Adding new features should be pretty easy, as long as they don't use any of those more advanced vue.js
+			features I mentioned earlier.</p>
+		<p>My program should work regardless of hardware and operating system upgrades, but it may get broken by future
+			updates to vue and/or one of the APIs. These parts where the program is out of my hands are usually what
+			goes awry in my experience.</p>
 	</div>
 </body>
 

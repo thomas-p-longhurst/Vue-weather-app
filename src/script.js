@@ -108,7 +108,10 @@ const app = Vue.createApp({
                 // Retrieve forecast data
                 this.forecasts = json.list;
             })
-            .catch(err => this.error = err);
+            .catch(err => {
+                this.err = err;
+                console.log(err);
+            });
     },
 });
 
