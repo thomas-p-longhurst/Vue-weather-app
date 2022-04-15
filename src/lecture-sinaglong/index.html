@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>What's the Weather Like?</title>
+    <link rel="stylesheet" href="../style.css"/>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+        .done {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div id="my-app">
+        <h2>{{ title }}</h2>
+        <p>{{ description }}</p>
+
+        <p v-if="visible">Now you see me</p>
+        <p v-else>Now you don't</p>
+
+        <p>You have {{ completed }} item{{pluralize(completed)}} done and {{ remaining }} item{{pluralize(remaining)}} not done</p>
+        <ol>
+            <li v-for="(item, idx) in todos"
+                v-bind:class="{done: item.done, todo: !item.done}"
+                :data-index="idx"
+                @click="toggle">
+                {{ item.text }}
+            </li>
+        </ol>
+
+        <div v-if="error !== undefined">
+            <h3>{{ error }}</h3>
+        </div>
+        <div v-else-if="lat === undefined">
+            <p>Please wait for API to respond...</p>
+        </div>
+        <div v-else>
+            <p>Lat: {{ lat }}</p>
+            <p>Lon: {{ lon }}</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+        $.getJSON('https://europe-west3-devrcc.cloudfunctions.net/whatismyip', function(data){
+            console.log(data);
+        })
+    </script>
+</body>
+</html>

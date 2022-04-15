@@ -28,6 +28,32 @@
 
 	<div id="plan2">
 		<h2>Phase 2: Design</h2>
+		<h3>script.js</h3>
+		<pre><code>methods: {
+	forecastToggle(event) {
+		if state == 'neutral' {
+			state = 'likely';
+		} else if state == 'likely' {
+			state = 'unlikely';
+		} else if state == 'unlikely' {
+			state = 'neutral'
+		}
+	}
+}
+created() {
+	fetch(ip-api.com)
+		.then(
+			this.lat = json.lat
+			this.lon = json.lon
+			return fetch(openweathermap.com/weather?lat=json.lat&lon=json.lon)
+		).then(
+			read through the JSON response and set a variable in data
+			return fetch(openweathermap.com/forecast?lat=this.lat&lon=this.lon) {
+		).then(
+			read through JSON and set variables in data
+		).catch(this.error = err);
+}
+		</code></pre>
 	</div>
 
 	<div id="plan3">
