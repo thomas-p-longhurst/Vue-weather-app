@@ -11,18 +11,41 @@
         <div class="shadowed black stuff-box">
             <h1>Vue.JS Weather App</h1>
         </div>
+
+        <div class="red stuff-box" v-if="error !== undefined">
+            <h2>Error</h2>
+            <p>There was an error in the API:</p>
+            <p>{{ error }}</p>
+        </div>
+
         <div class="shadowed blue stuff-box">
             <h2>Your location</h2>
-            <p>Please wait for the location API to respond...</p>
+            <p v-if="lat === undefined">Please wait for the location API to respond...</p>
+            <p v-else>You are located in {{city}}, {{region}}, {{country}} at coordinates ({{lat}}, {{lon}})</p>
         </div>
+
         <div class="shadowed yellow stuff-box">
             <h2>Current conditions</h2>
-            <p>Please wait for the weather API to respond...</p>
+            <p v-if="currWeather === undefined">Please wait for the weather API to respond...</p>
+            <div v-else>
+                <p>Current weather conditions @ {{ getTime(currWeather) }}</p>
+                <ul>
+                    <li v-for="i of digestResponse(currWeather, true)">{{ i }}</li>
+                </ul>
+            </div>
         </div>
+
         <div class="shadowed cyan stuff-box">
             <h2>5 day 3-hour forecast</h2>
-            <p>Please wait for the weather API to respond...</p>
+            <p v-if="forecasts[0] === undefined">Please wait for the weather API to respond...</p>
+            <div v-else v-for="f of forecasts" class="black stuff-box">
+                <p>Conditions for {{ getTime(f) }}</p>
+                <ul>
+                    <li v-for="j of digestResponse(f, false)">{{ j }}</li>
+                </ul>
+            </div>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
