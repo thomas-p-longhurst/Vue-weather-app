@@ -11,19 +11,10 @@ const app = Vue.createApp({
             lat: undefined,
             lon: undefined,
 
-            // currWeather: {
-            //     time: undefined,
-            //     temp: undefined,
-            //     high: undefined,
-            //     low: undefined,
-            //     description: undefined,
-            //     humidity: undefined,
-            //     pressure: undefined,
-            // },
-
             currWeather: undefined,
 
             forecasts: [],
+            likelihoods: Array(40).fill('neutral'),
 
             err: undefined,
         }
@@ -34,6 +25,7 @@ const app = Vue.createApp({
             let d = new Date(json.dt * 1000);
             return d.toLocaleString();
         },
+
         digestResponse(json, currentConditions) {
             let r = {}
 
@@ -50,10 +42,47 @@ const app = Vue.createApp({
 
             return r;
         },
+
+        toggle(ev) {
+            let div = ev.currentTarget;
+            let idx = div.getAttribute('data-index');
+            let state = this.likelihoods[idx];
+            if (state === 'neutral') {
+                this.likelihoods[idx] = 'likely';
+            } else if (state === 'likely') {
+                this.likelihoods[idx] = 'unlikely';
+            } else if (state === 'unlikely') {
+                this.likelihoods[idx] = 'neutral';
+            }
+        },
     },
 
     computed: {
+        neutral() {
+            let c = 0;
+            for (let i in this.forecasts) {
+                if (this.likelihoods[i] === 'neutral') c ++;
+            }
+            return c;
+        },
 
+        likely() {
+            let c = 0;
+            for (let i in this.forecasts) {
+                if (this.likelihoods[i] === 'likely') c ++;
+            }
+            return c;
+
+        },
+
+        unlikely() {
+            let c = 0;
+            for (let i in this.forecasts) {
+                if (this.likelihoods[i] === 'unlikely') c ++;
+            }
+            return c;
+
+        },
     },
 
     created() {
